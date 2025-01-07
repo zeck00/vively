@@ -8,7 +8,7 @@
       "username": "Username",
       "password": "Password",
       "forgotPassword": "Forgot your password?",
-      "loginButton": "Log In",
+      "loginButton": "Start Now",
       "signupPrompt": "Don't have an account?",
       "signupLink": "Create a new account"
     },
@@ -28,6 +28,7 @@
       "loginFailed": "Login failed. Please check your credentials."
     },
     "buttons": {
+      "login": "Login",
       "submit": "Submit",
       "cancel": "Cancel",
       "retry": "Retry"

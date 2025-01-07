@@ -8,7 +8,7 @@
       "username": "اسم المستخدم",
       "password": "كلمة المرور",
       "forgotPassword": "نسيت كلمة المرور؟",
-      "loginButton": "تسجيل الدخول",
+      "loginButton": "ابدأ الآن",
       "signupPrompt": "ليس لديك حساب؟",
       "signupLink": "إنشاء حساب جديد"
     },
@@ -28,6 +28,7 @@
       "loginFailed": "فشل تسجيل الدخول. يرجى التحقق من البيانات."
     },
     "buttons": {
+      "login": "تسجيل الدخول",
       "submit": "إرسال",
       "cancel": "إلغاء",
       "retry": "إعادة المحاولة"

@@ -52,9 +52,18 @@ class Fonts {
   static TextStyle inputHint(BuildContext context) {
     return TextStyle(
       fontFamily: getFont(context),
-      fontSize: propText(14),
+      fontSize: propText(12),
       fontWeight: FontWeight.normal,
       color: AppColors.black,
+    );
+  }
+
+  static TextStyle inputHintGrey(BuildContext context) {
+    return TextStyle(
+      fontFamily: getFont(context),
+      fontSize: propText(12),
+      fontWeight: FontWeight.normal,
+      color: AppColors.black.withOpacity(0.5),
     );
   }
 
@@ -85,13 +94,14 @@ class Fonts {
     );
   }
 
-  static TextStyle linkText(BuildContext context) {
+  static TextStyle linkText(BuildContext context, bool isUnderlined) {
     return TextStyle(
       fontFamily: getFont(context),
-      fontSize: propText(14),
+      fontSize: propText(12),
       fontWeight: FontWeight.normal,
       color: AppColors.teal,
-      decoration: TextDecoration.underline,
+      decoration: isUnderlined ? TextDecoration.underline : TextDecoration.none,
+      decorationColor: AppColors.teal,
     );
   }
 

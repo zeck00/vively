@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:vively/services/size_config.dart';
-import 'screens/login.dart';
+import 'screens/welcome.dart';
 import 'services/colors.dart';
 import 'services/fonts.dart';
 
@@ -32,7 +32,7 @@ class MainApp extends StatelessWidget {
       theme: AppThemes.lightTheme(context),
       darkTheme: AppThemes.darkTheme(context),
       themeMode: ThemeMode.system,
-      home: const LoginScreen(),
+      home: const WelcomeScreen(),
     );
   }
 }
@@ -47,12 +47,43 @@ class AppThemes {
       scaffoldBackgroundColor: AppColors.white,
       cardColor: AppColors.white,
       appBarTheme: AppBarTheme(
-        color: AppColors.blue,
+        color: AppColors.white,
         elevation: 0,
         titleTextStyle:
-            Fonts.headline1(context).copyWith(color: AppColors.white),
-        iconTheme: const IconThemeData(color: AppColors.white),
+            Fonts.bodyText1(context).copyWith(color: AppColors.black),
+        iconTheme: const IconThemeData(color: AppColors.black),
       ),
+      textButtonTheme: TextButtonThemeData(
+        style: TextButton.styleFrom(
+          foregroundColor: AppColors.teal,
+          splashFactory: NoSplash.splashFactory,
+          overlayColor: AppColors.teal.withOpacity(0.2),
+        ),
+      ),
+      textSelectionTheme: TextSelectionThemeData(
+        selectionColor: AppColors.purple.withOpacity(0.2),
+        cursorColor: AppColors.blue,
+        selectionHandleColor: AppColors.purple,
+      ),
+      inputDecorationTheme: InputDecorationTheme(
+        filled: true,
+        fillColor: AppColors.white,
+        hintStyle: Fonts.inputHint(context).copyWith(color: AppColors.black),
+        activeIndicatorBorder: const BorderSide(color: AppColors.blue),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(propWidth(10)),
+          borderSide: const BorderSide(color: AppColors.black),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(propWidth(10)),
+          borderSide: const BorderSide(color: AppColors.black),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(propWidth(10)),
+          borderSide: const BorderSide(color: AppColors.blue),
+        ),
+      ),
+      useMaterial3: true,
       textTheme: TextTheme(
         bodyMedium: Fonts.bodyText1(context),
         bodySmall: Fonts.caption(context),
@@ -80,12 +111,43 @@ class AppThemes {
       scaffoldBackgroundColor: AppColors.black,
       cardColor: AppColors.black,
       appBarTheme: AppBarTheme(
-        color: AppColors.blue,
+        color: AppColors.white,
         elevation: 0,
         titleTextStyle:
-            Fonts.headline1(context).copyWith(color: AppColors.white),
-        iconTheme: const IconThemeData(color: AppColors.white),
+            Fonts.bodyText1(context).copyWith(color: AppColors.black),
+        iconTheme: const IconThemeData(color: AppColors.black),
       ),
+      textButtonTheme: TextButtonThemeData(
+        style: TextButton.styleFrom(
+          foregroundColor: AppColors.teal,
+          splashFactory: NoSplash.splashFactory,
+          overlayColor: AppColors.teal.withOpacity(0.2),
+        ),
+      ),
+      textSelectionTheme: TextSelectionThemeData(
+        selectionColor: AppColors.purple.withOpacity(0.2),
+        cursorColor: AppColors.blue,
+        selectionHandleColor: AppColors.purple,
+      ),
+      inputDecorationTheme: InputDecorationTheme(
+        filled: true,
+        fillColor: AppColors.white,
+        hintStyle: Fonts.inputHint(context).copyWith(color: AppColors.black),
+        activeIndicatorBorder: const BorderSide(color: AppColors.blue),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(propWidth(10)),
+          borderSide: const BorderSide(color: AppColors.black),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(propWidth(10)),
+          borderSide: const BorderSide(color: AppColors.black),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(propWidth(10)),
+          borderSide: const BorderSide(color: AppColors.blue),
+        ),
+      ),
+      useMaterial3: true,
       textTheme: TextTheme(
         bodyMedium: Fonts.bodyText1(context).copyWith(color: AppColors.white),
         bodySmall: Fonts.caption(context).copyWith(color: AppColors.white),
