@@ -1,0 +1,45 @@
+{
+    "welcome": {
+      "hiPhrase": "مرحبًا",
+      "introMessage": "مرحبًا بكم في فيفلي، شاركوا أحلامكم!"
+    },
+    "login": {
+      "title": "تسجيل الدخول",
+      "username": "اسم المستخدم",
+      "password": "كلمة المرور",
+      "forgotPassword": "نسيت كلمة المرور؟",
+      "loginButton": "تسجيل الدخول",
+      "signupPrompt": "ليس لديك حساب؟",
+      "signupLink": "إنشاء حساب جديد"
+    },
+    "signup": {
+      "title": "إنشاء حساب",
+      "username": "اسم المستخدم",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "confirmPassword": "تأكيد كلمة المرور",
+      "signupButton": "إنشاء حساب"
+    },
+    "errors": {
+      "requiredField": "هذا الحقل مطلوب",
+      "invalidEmail": "البريد الإلكتروني غير صحيح",
+      "invalidPassword": "كلمة المرور يجب أن تحتوي على 8 أحرف على الأقل",
+      "passwordMismatch": "كلمتا المرور غير متطابقتين",
+      "loginFailed": "فشل تسجيل الدخول. يرجى التحقق من البيانات."
+    },
+    "buttons": {
+      "submit": "إرسال",
+      "cancel": "إلغاء",
+      "retry": "إعادة المحاولة"
+    },
+    "placeholders": {
+      "enterUsername": "أدخل اسم المستخدم",
+      "enterPassword": "أدخل كلمة المرور",
+      "enterEmail": "أدخل البريد الإلكتروني"
+    },
+    "success": {
+      "login": "تم تسجيل الدخول بنجاح",
+      "signup": "تم إنشاء الحساب بنجاح"
+    }
+  }
+  

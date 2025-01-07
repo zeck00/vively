@@ -1,0 +1,45 @@
+{
+    "welcome": {
+      "hiPhrase": "Hello",
+      "introMessage": "Welcome to Vively, share your dreams!"
+    },
+    "login": {
+      "title": "Login",
+      "username": "Username",
+      "password": "Password",
+      "forgotPassword": "Forgot your password?",
+      "loginButton": "Log In",
+      "signupPrompt": "Don't have an account?",
+      "signupLink": "Create a new account"
+    },
+    "signup": {
+      "title": "Sign Up",
+      "username": "Username",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "signupButton": "Sign Up"
+    },
+    "errors": {
+      "requiredField": "This field is required",
+      "invalidEmail": "Invalid email address",
+      "invalidPassword": "Password must be at least 8 characters",
+      "passwordMismatch": "Passwords do not match",
+      "loginFailed": "Login failed. Please check your credentials."
+    },
+    "buttons": {
+      "submit": "Submit",
+      "cancel": "Cancel",
+      "retry": "Retry"
+    },
+    "placeholders": {
+      "enterUsername": "Enter username",
+      "enterPassword": "Enter password",
+      "enterEmail": "Enter email"
+    },
+    "success": {
+      "login": "Logged in successfully",
+      "signup": "Account created successfully"
+    }
+  }
+  

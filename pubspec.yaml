@@ -1,0 +1,100 @@
+name: vively
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.5.4
+
+dependencies:
+  easy_localization: ^3.0.7
+  flutter:
+    sdk: flutter
+  flutter_launcher_icons: ^0.14.1
+  flutter_native_splash: ^2.4.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/locales/
+  fonts:
+    - family: Almarai
+      fonts:
+        - asset: assets/fonts/Almarai-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Almarai-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Almarai-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Almarai-ExtraBold.ttf
+          weight: 800
+    - family: Kanit
+      fonts:
+        - asset: assets/fonts/Kanit-Black.ttf
+          weight: 900
+        - asset: assets/fonts/Kanit-BlackItalic.ttf
+          weight: 900
+          style: italic
+        - asset: assets/fonts/Kanit-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Kanit-BoldItalic.ttf
+          weight: 700
+          style: italic
+        - asset: assets/fonts/Kanit-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/Kanit-ExtraBoldItalic.ttf
+          weight: 800
+          style: italic
+        - asset: assets/fonts/Kanit-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/Kanit-ExtraLightItalic.ttf
+          weight: 200
+          style: italic
+        - asset: assets/fonts/Kanit-Italic.ttf
+          style: italic
+        - asset: assets/fonts/Kanit-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Kanit-LightItalic.ttf
+          weight: 300
+          style: italic
+        - asset: assets/fonts/Kanit-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Kanit-MediumItalic.ttf
+          weight: 500
+          style: italic
+        - asset: assets/fonts/Kanit-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Kanit-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Kanit-SemiBoldItalic.ttf
+          weight: 600
+          style: italic
+        - asset: assets/fonts/Kanit-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/Kanit-ThinItalic.ttf
+          weight: 100
+          style: italic
+
+flutter_native_splash:
+  android: true
+  ios: true
+  color: "#FCBF10"
+  image: assets/images/logo.png
+  android_12:
+    color: "#FCBF10"
+    image: assets/images/logo.png
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/logo.png"
+  adaptive_icon_background: "#131313"
+  adaptive_icon_foreground: "assets/images/logo.png"
+  min_sdk_android: 23
+  remove_alpha_ios: true
