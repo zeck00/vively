@@ -27,9 +27,6 @@ Vively is a cutting-edge prototype platform designed to simplify the concept of 
 - **Loyalty Points & Coupons**: Gamify the experience with exciting rewards 🎁.  
 - **Mini-Games**: Built-in fun to keep users engaged and entertained 🎮.  
 
-### 🟩 **Branch Locator**
-- Use the integrated **Google Maps API** to locate branches and calculate distances.  
-
 ### 🔔 **Instant Notifications**
 - Stay connected with timely updates powered by **OneSignal** notifications.  
 
