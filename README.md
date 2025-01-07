@@ -11,7 +11,6 @@ Vively is a cutting-edge prototype platform designed to simplify the concept of 
 ### **Core Features**:
 - ✨ **Beautiful UI/UX** with dynamic themes and custom fonts.  
 - 🌍 **Bilingual Support** (Arabic 🇦🇪 & English 🇺🇸).  
-- 🟩 **Branch Locator** powered by Google Maps API.  
 - 🎮 **Interactive Features** like loyalty points and mini-games to engage users.  
 - 🔔 **Real-Time Notifications** with OneSignal integration.  
 
