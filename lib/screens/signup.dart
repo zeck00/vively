@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:vively/services/colors.dart';
 import 'package:vively/services/fonts.dart';
-import 'package:vively/services/size_config.dart';
+import 'package:vively/services/sizeConfig.dart';
 import 'package:vively/widgets/button.dart';
 
 class SignupScreen extends StatefulWidget {

@@ -27,7 +27,12 @@
       "invalidEmail": "Invalid email address",
       "invalidPassword": "Password must be at least 8 characters",
       "passwordMismatch": "Passwords do not match",
-      "loginFailed": "Login failed. Please check your credentials."
+      "loginFailed": "Login failed. Please check your credentials.",
+      "invalidNumber": "Please enter a valid number",
+      "invalidPrice": "Price must be greater than 0",
+      "priceTooHigh": "Price exceeds maximum limit",
+      "noFeatures": "Please select at least one feature",
+      "imagePickFailed": "Failed to pick image. Please try again."
     },
     "buttons": {
       "login": "Login",
@@ -67,7 +72,9 @@
         "all": "All",
         "cars": "Cars",
         "homes": "Homes",
-        "gadgets": "Gadgets"
+        "gadgets": "Gadgets",
+        "yachts": "Yachts",
+        "offices": "Offices"
       },
       "posts": {
         "requestJoin": "Request to Join",
@@ -84,10 +91,59 @@
       "specifications": "Specifications",
       "rules": "Usage Rules",
       "requestAccess": "Request Access",
-      "requestExtension": "Request Period Extension",
+      "requestExtension": "Extend Period",
       "extensionRequested": "Extension Requested",
       "requestAccessSuccess": "Access request sent successfully",
       "requestExtensionSuccess": "Extension request sent successfully"
+    },
+    "nav": {
+      "home": "Home",
+      "explore": "Explore",
+      "addAsset": "Add Asset",
+      "settings": "Settings",
+      "support": "Support"
+    },
+    "addAsset": {
+      "uploadImage": "Upload Asset Image",
+      "type": "Asset Type",
+      "name": "Asset Name",
+      "nameHint": "Enter asset name",
+      "location": "Location",
+      "locationHint": "Enter asset location",
+      "price": "Total Price",
+      "priceHint": "Enter total asset price",
+      "description": "Description",
+      "descriptionHint": "Describe your asset",
+      "features": "Features",
+      "submit": "List Asset",
+      "success": "Asset listed successfully",
+      "selectSource": "Select Image Source",
+      "camera": "Take Photo",
+      "gallery": "Choose from Gallery",
+      "cropImage": "Crop Image",
+      "uploading": "Uploading...",
+      "imageUploaded": "Image uploaded successfully"
+    },
+    "settings": {
+      "language": "Language",
+      "currentLanguage": "Current Language",
+      "languageChanged": "Language changed successfully",
+      "notifications": "Notifications",
+      "pushNotifications": "Push Notifications",
+      "notificationsEnabled": "Notifications enabled",
+      "notificationsDisabled": "Notifications disabled",
+      "security": "Security",
+      "biometric": "Biometric Authentication",
+      "biometricEnabled": "Biometric authentication enabled",
+      "biometricDisabled": "Biometric authentication disabled",
+      "appearance": "Appearance",
+      "darkMode": "Dark Mode",
+      "darkModeEnabled": "Dark mode enabled",
+      "darkModeDisabled": "Dark mode disabled",
+      "account": "Account",
+      "editProfile": "Edit Profile",
+      "changePassword": "Change Password",
+      "logout": "Logout"
     }
   }
   

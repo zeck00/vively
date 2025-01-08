@@ -27,7 +27,12 @@
       "invalidEmail": "البريد الإلكتروني غير صحيح",
       "invalidPassword": "كلمة المرور يجب أن تحتوي على 8 أحرف على الأقل",
       "passwordMismatch": "كلمتا المرور غير متطابقتين",
-      "loginFailed": "فشل تسجيل الدخول. يرجى التحقق من البيانات."
+      "loginFailed": "فشل تسجيل الدخول. يرجى التحقق من البيانات.",
+      "invalidNumber": "الرجاء إدخال رقم صحيح",
+      "invalidPrice": "يجب أن يكون السعر أكبر من 0",
+      "priceTooHigh": "السعر يتجاوز الحد الأقصى",
+      "noFeatures": "الرجاء اختيار ميزة واحدة على الأقل",
+      "imagePickFailed": "فشل اختيار الصورة. يرجى المحاولة مرة أخرى."
     },
     "buttons": {
       "login": "تسجيل الدخول",
@@ -67,7 +72,9 @@
         "all": "الكل",
         "cars": "سيارات",
         "homes": "منازل",
-        "gadgets": "أجهزة"
+        "gadgets": "أجهزة",
+        "yachts": "يخوت",
+        "offices": "مكاتب"
       },
       "posts": {
         "requestJoin": "طلب الانضمام",
@@ -84,10 +91,59 @@
       "specifications": "المواصفات",
       "rules": "قواعد الاستخدام",
       "requestAccess": "طلب الوصول",
-      "requestExtension": "طلب تمديد الفترة",
+      "requestExtension": "تمديد الفترة",
       "extensionRequested": "تم طلب التمديد",
       "requestAccessSuccess": "تم إرسال طلب الوصول بنجاح",
       "requestExtensionSuccess": "تم إرسال طلب التمديد بنجاح"
+    },
+    "nav": {
+      "home": "الرئيسية",
+      "explore": "استكشف",
+      "addAsset": "إضافة أصل",
+      "settings": "الإعدادات",
+      "support": "الدعم"
+    },
+    "addAsset": {
+      "uploadImage": "رفع صورة الأصل",
+      "type": "نوع الأصل",
+      "name": "اسم الأصل",
+      "nameHint": "أدخل اسم الأصل",
+      "location": "الموقع",
+      "locationHint": "أدخل موقع الأصل",
+      "price": "السعر الإجمالي",
+      "priceHint": "أدخل السعر الإجمالي للأصل",
+      "description": "الوصف",
+      "descriptionHint": "صف الأصل الخاص بك",
+      "features": "المميزات",
+      "submit": "إدراج الأصل",
+      "success": "تم إدراج الأصل بنجاح",
+      "selectSource": "اختر مصدر الصورة",
+      "camera": "التقاط صورة",
+      "gallery": "اختيار من المعرض",
+      "cropImage": "قص الصورة",
+      "uploading": "جاري الرفع...",
+      "imageUploaded": "تم رفع الصورة بنجاح"
+    },
+    "settings": {
+      "language": "اللغة",
+      "currentLanguage": "اللغة الحالية",
+      "languageChanged": "تم تغيير اللغة بنجاح",
+      "notifications": "الإشعارات",
+      "pushNotifications": "إشعارات الدفع",
+      "notificationsEnabled": "تم تفعيل الإشعارات",
+      "notificationsDisabled": "تم تعطيل ال�شعارات",
+      "security": "الأمان",
+      "biometric": "المصادقة البيومترية",
+      "biometricEnabled": "تم تفعيل المصادقة البيومترية",
+      "biometricDisabled": "تم تعطيل المصادقة البيومترية",
+      "appearance": "المظهر",
+      "darkMode": "الوضع الداكن",
+      "darkModeEnabled": "تم تفعيل الوضع الداكن",
+      "darkModeDisabled": "تم تعطيل الوضع الداكن",
+      "account": "الحساب",
+      "editProfile": "تعديل الملف الشخصي",
+      "changePassword": "تغيير كلمة المرور",
+      "logout": "تسجيل الخروج"
     }
   }
   

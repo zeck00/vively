@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vively/services/colors.dart';
 import 'package:vively/services/fonts.dart';
-import 'package:vively/services/size_config.dart';
+import 'package:vively/services/sizeConfig.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;

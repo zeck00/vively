@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:vively/models/asset.dart';
 import 'package:vively/services/colors.dart';
 import 'package:vively/services/fonts.dart';
-import 'package:vively/services/size_config.dart';
+import 'package:vively/services/sizeConfig.dart';
 import 'package:vively/widgets/button.dart';
-import 'package:vively/services/flushbar_helper.dart';
+import 'package:vively/services/flushbarHelper.dart';
 
 class AssetDetailScreen extends StatelessWidget {
   final Asset asset;
@@ -36,8 +36,8 @@ class AssetDetailScreen extends StatelessWidget {
                   SizedBox(height: propHeight(20)),
                   _buildCurrentStatus(context),
                   SizedBox(height: propHeight(15)),
-                  Center(child: _buildActionButtons(context)),
-                  SizedBox(height: propHeight(5)),
+                  if (isCoOwned) Center(child: _buildActionButtons(context)),
+                  SizedBox(height: propHeight(10)),
                   _buildOwnersList(context),
                   SizedBox(height: propHeight(10)),
                   _buildScheduleSection(context),
@@ -404,13 +404,13 @@ class AssetDetailScreen extends StatelessWidget {
   }
 
   Widget _buildActionButtons(BuildContext context) {
-    return Column(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       mainAxisSize: MainAxisSize.min,
       children: [
         CustomButton(
-          w: (200),
-          h: (30),
+          w: (145),
+          h: (40),
           text: 'asset.requestAccess'.tr(),
           onPressed: () => _handleRequestAccess(context),
           gradient: const LinearGradient(
@@ -418,10 +418,10 @@ class AssetDetailScreen extends StatelessWidget {
             transform: GradientRotation(90),
           ),
         ),
-        SizedBox(height: propHeight(5)),
+        Expanded(child: Container()),
         CustomButton(
-          w: (200),
-          h: (30),
+          w: (145),
+          h: (40),
           text: 'asset.requestExtension'.tr(),
           onPressed: () => _handleRequestExtension(context),
           gradient: const LinearGradient(

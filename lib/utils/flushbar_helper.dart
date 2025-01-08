@@ -2,7 +2,7 @@ import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:vively/services/colors.dart';
 import 'package:vively/services/fonts.dart';
-import 'package:vively/services/size_config.dart';
+import 'package:vively/services/sizeConfig.dart';
 
 class FlushbarHelper {
   static void showSuccess({
@@ -18,12 +18,12 @@ class FlushbarHelper {
       backgroundColor: AppColors.mint.withOpacity(0.95),
       messageText: Text(
         message,
-        style: Fonts.bodyText1(context),
+        style: Fonts.bodyText1(context).copyWith(color: AppColors.white),
       ),
       icon: Icon(
         Icons.check_circle_outline_rounded,
         size: propWidth(28),
-        color: AppColors.black,
+        color: AppColors.white,
       ),
       flushbarPosition: FlushbarPosition.TOP,
     ).show(context);

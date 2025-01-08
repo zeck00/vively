@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:vively/screens/login.dart';
 import 'package:vively/services/colors.dart';
 import 'package:vively/services/fonts.dart';
-import 'package:vively/services/size_config.dart';
+import 'package:vively/services/sizeConfig.dart';
 import 'package:vively/widgets/button.dart';
 
 class WelcomeScreen extends StatefulWidget {

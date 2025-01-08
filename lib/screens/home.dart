@@ -4,11 +4,12 @@ import 'package:provider/provider.dart';
 import 'package:vively/screens/login.dart';
 import 'package:vively/services/colors.dart';
 import 'package:vively/services/fonts.dart';
-import 'package:vively/services/size_config.dart';
+import 'package:vively/services/sizeConfig.dart';
 import 'package:vively/widgets/button.dart';
 import 'package:vively/models/asset.dart';
-import 'package:vively/screens/asset_detail.dart';
-import 'package:vively/providers/auth_provider.dart';
+import 'package:vively/screens/assetDetail.dart';
+import 'package:vively/providers/authProvider.dart';
+import 'package:vively/providers/assetProvider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -25,6 +26,10 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     initSizeConfig(context);
     bool isArabic = context.locale == const Locale('ar');
+
+    final assetProvider = context.watch<AssetProvider>();
+    final myAssetsList = assetProvider.getAssets(context.locale);
+    final feedAssetsList = assetProvider.getFeedAssets(context.locale);
 
     return Scaffold(
       backgroundColor: AppColors.white,
@@ -65,15 +70,30 @@ class _HomeScreenState extends State<HomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: propHeight(20)),
+
+              // My Assets Section
               Text(
-                'home.welcome'.tr(),
-                style: Fonts.headline1(context),
+                'home.myAssets'.tr(),
+                style: Fonts.headline2(context),
               ),
               SizedBox(height: propHeight(20)),
+              SizedBox(
+                height: propHeight(230),
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: myAssetsList.length,
+                  itemBuilder: (context, index) =>
+                      _buildAssetCard(myAssetsList[index]),
+                ),
+              ),
+              SizedBox(height: propHeight(30)),
+
               // Search Bar
               TextField(
                 controller: _searchController,
                 decoration: InputDecoration(
+                  alignLabelWithHint: true,
+                  hintFadeDuration: const Duration(milliseconds: 100),
                   filled: true,
                   fillColor: AppColors.white,
                   hintText: 'home.searchHint'.tr(),
@@ -95,66 +115,26 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               SizedBox(height: propHeight(20)),
+
               // Filter Chips
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
                     _buildFilterChip('all'),
-                    SizedBox(width: propWidth(10)),
+                    SizedBox(width: propWidth(5)),
                     _buildFilterChip('cars'),
-                    SizedBox(width: propWidth(10)),
+                    SizedBox(width: propWidth(5)),
                     _buildFilterChip('homes'),
-                    SizedBox(width: propWidth(10)),
+                    SizedBox(width: propWidth(5)),
                     _buildFilterChip('gadgets'),
+                    SizedBox(width: propWidth(5)),
+                    _buildFilterChip('yachts'),
                   ],
                 ),
               ),
               SizedBox(height: propHeight(30)),
-              // Quick Actions
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  _buildQuickAction(
-                    Icons.add_circle_outline,
-                    'home.actions.addAsset'.tr(),
-                    () {
-                      // Handle add asset
-                    },
-                  ),
-                  _buildQuickAction(
-                    Icons.explore_outlined,
-                    'home.actions.explore'.tr(),
-                    () {
-                      // Handle explore
-                    },
-                  ),
-                  _buildQuickAction(
-                    Icons.notifications_outlined,
-                    'home.actions.notifications'.tr(),
-                    () {
-                      // Handle notifications
-                    },
-                  ),
-                ],
-              ),
-              SizedBox(height: propHeight(30)),
-              // My Assets Section
-              Text(
-                'home.myAssets'.tr(),
-                style: Fonts.headline2(context),
-              ),
-              SizedBox(height: propHeight(20)),
-              SizedBox(
-                height: propHeight(230),
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: myAssets.length,
-                  itemBuilder: (context, index) =>
-                      _buildAssetCard(myAssets[index]),
-                ),
-              ),
-              SizedBox(height: propHeight(30)),
+
               // Feed Section
               Text(
                 'home.feed'.tr(),
@@ -164,9 +144,9 @@ class _HomeScreenState extends State<HomeScreen> {
               ListView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                itemCount: feedAssets.length,
+                itemCount: feedAssetsList.length,
                 itemBuilder: (context, index) =>
-                    _buildFeedItem(feedAssets[index]),
+                    _buildFeedItem(feedAssetsList[index]),
               ),
             ],
           ),
@@ -183,11 +163,11 @@ class _HomeScreenState extends State<HomeScreen> {
         style: Fonts.chipText(context, isSelected),
       ),
       selected: isSelected,
-      onSelected: (bool selected) {
-        setState(() {
-          _selectedFilter = selected ? filter : 'all';
-        });
-      },
+      iconTheme: IconThemeData(
+        color: isSelected ? AppColors.white : AppColors.black,
+      ),
+      checkmarkColor: AppColors.white,
+      showCheckmark: true,
       backgroundColor: AppColors.white,
       selectedColor: AppColors.blue,
       shape: RoundedRectangleBorder(
@@ -196,6 +176,11 @@ class _HomeScreenState extends State<HomeScreen> {
           color: isSelected ? AppColors.blue : AppColors.black,
         ),
       ),
+      onSelected: (bool selected) {
+        setState(() {
+          _selectedFilter = selected ? filter : 'all';
+        });
+      },
     );
   }
 
@@ -205,22 +190,31 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Column(
         children: [
           Container(
-            width: propWidth(50),
-            height: propWidth(50),
+            padding: EdgeInsets.symmetric(horizontal: propWidth(30)),
+            width: propWidth(155),
+            height: propWidth(40),
             decoration: BoxDecoration(
               gradient: const LinearGradient(
-                colors: [AppColors.blue, AppColors.mint],
+                colors: [AppColors.purple, AppColors.blue],
                 transform: GradientRotation(90),
               ),
               borderRadius: BorderRadius.circular(propWidth(25)),
             ),
-            child: Icon(icon, color: AppColors.white),
-          ),
-          SizedBox(height: propHeight(8)),
-          Text(
-            label,
-            style: Fonts.smallText(context),
-            textAlign: TextAlign.center,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(icon, color: AppColors.white, size: propWidth(22)),
+                Expanded(child: Container()),
+                Text(
+                  label,
+                  style: Fonts.bodyText2(context).copyWith(
+                    color: AppColors.white,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
           ),
         ],
       ),

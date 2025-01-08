@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:vively/screens/home.dart';
 import 'package:vively/screens/welcome.dart';
-import 'package:vively/services/size_config.dart';
+import 'package:vively/services/sizeConfig.dart';
 import 'services/colors.dart';
 import 'services/fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:vively/providers/auth_provider.dart';
+import 'package:vively/providers/authProvider.dart';
+import 'package:vively/screens/mainScreen.dart';
+import 'package:vively/providers/assetProvider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,6 +21,7 @@ void main() async {
       child: MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (_) => AuthProvider()),
+          ChangeNotifierProvider(create: (_) => AssetProvider()),
         ],
         child: const MyApp(),
       ),
@@ -39,7 +41,7 @@ class MyApp extends StatelessWidget {
       locale: context.locale,
       home: Consumer<AuthProvider>(
         builder: (context, auth, _) {
-          return auth.isLoggedIn ? const HomeScreen() : const WelcomeScreen();
+          return auth.isLoggedIn ? const MainScreen() : const WelcomeScreen();
         },
       ),
     );
