@@ -18,7 +18,9 @@
       "email": "Email",
       "password": "Password",
       "confirmPassword": "Confirm Password",
-      "signupButton": "Sign Up"
+      "signupButton": "Create Account",
+      "loginPrompt": "Already have an account?",
+      "loginLink": "Login here"
     },
     "errors": {
       "requiredField": "This field is required",
@@ -41,6 +43,51 @@
     "success": {
       "login": "Logged in successfully",
       "signup": "Account created successfully"
+    },
+    "home": {
+      "title": "Home",
+      "welcome": "Welcome back",
+      "searchHint": "Search for assets...",
+      "myAssets": "My Co-owned Assets",
+      "noAssets": "No assets yet",
+      "explore": "Explore",
+      "feed": "Latest Opportunities",
+      "insights": {
+        "title": "My Insights",
+        "totalSavings": "Total Savings",
+        "nextPayment": "Next Payment",
+        "usageStats": "Usage Stats"
+      },
+      "actions": {
+        "addAsset": "Add Asset",
+        "explore": "Explore",
+        "notifications": "Notifications"
+      },
+      "filters": {
+        "all": "All",
+        "cars": "Cars",
+        "homes": "Homes",
+        "gadgets": "Gadgets"
+      },
+      "posts": {
+        "requestJoin": "Request to Join",
+        "learnMore": "Learn More",
+        "price": "Price",
+        "location": "Location",
+        "owners": "Co-owners"
+      }
+    },
+    "asset": {
+      "currentStatus": "Current Status",
+      "owners": "Co-owners",
+      "schedule": "Usage Schedule",
+      "specifications": "Specifications",
+      "rules": "Usage Rules",
+      "requestAccess": "Request Access",
+      "requestExtension": "Request Period Extension",
+      "extensionRequested": "Extension Requested",
+      "requestAccessSuccess": "Access request sent successfully",
+      "requestExtensionSuccess": "Extension request sent successfully"
     }
   }
   

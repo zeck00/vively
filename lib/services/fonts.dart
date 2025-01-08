@@ -22,12 +22,39 @@ class Fonts {
     );
   }
 
+  static TextStyle headline2(BuildContext context) {
+    return TextStyle(
+      fontFamily: getFont(context),
+      fontSize: propText(24),
+      fontWeight: FontWeight.w600,
+      color: AppColors.black,
+    );
+  }
+
+  static TextStyle subtitle1(BuildContext context) {
+    return TextStyle(
+      fontFamily: getFont(context),
+      fontSize: propText(18),
+      fontWeight: FontWeight.w600,
+      color: AppColors.black,
+    );
+  }
+
   static TextStyle bodyText1(BuildContext context) {
     return TextStyle(
       fontFamily: getFont(context),
       fontSize: propText(16),
       fontWeight: FontWeight.normal,
       color: AppColors.black,
+    );
+  }
+
+  static TextStyle bodyText2(BuildContext context) {
+    return TextStyle(
+      fontFamily: getFont(context),
+      fontSize: propText(14),
+      fontWeight: FontWeight.normal,
+      color: AppColors.black.withOpacity(0.8),
     );
   }
 
@@ -40,7 +67,7 @@ class Fonts {
     );
   }
 
-  static TextStyle caption(BuildContext context) {
+  static TextStyle smallText(BuildContext context) {
     return TextStyle(
       fontFamily: getFont(context),
       fontSize: propText(12),
@@ -49,59 +76,41 @@ class Fonts {
     );
   }
 
-  static TextStyle inputHint(BuildContext context) {
+  static TextStyle chipText(BuildContext context, bool isSelected) {
     return TextStyle(
       fontFamily: getFont(context),
-      fontSize: propText(12),
-      fontWeight: FontWeight.normal,
-      color: AppColors.black,
-    );
-  }
-
-  static TextStyle inputHintGrey(BuildContext context) {
-    return TextStyle(
-      fontFamily: getFont(context),
-      fontSize: propText(12),
-      fontWeight: FontWeight.normal,
-      color: AppColors.black.withOpacity(0.5),
-    );
-  }
-
-  static TextStyle cardTitle(BuildContext context) {
-    return TextStyle(
-      fontFamily: getFont(context),
-      fontSize: propText(18),
-      fontWeight: FontWeight.w700,
-      color: AppColors.black,
-    );
-  }
-
-  static TextStyle miniText(BuildContext context) {
-    return TextStyle(
-      fontFamily: getFont(context),
-      fontSize: propText(10),
-      fontWeight: FontWeight.w400,
-      color: AppColors.black,
-    );
-  }
-
-  static TextStyle sectionTitle(BuildContext context) {
-    return TextStyle(
-      fontFamily: getFont(context),
-      fontSize: propText(20),
-      fontWeight: FontWeight.bold,
-      color: AppColors.black,
+      fontSize: propText(14),
+      fontWeight: FontWeight.w500,
+      color: isSelected ? AppColors.white : AppColors.black,
     );
   }
 
   static TextStyle linkText(BuildContext context, bool isUnderlined) {
     return TextStyle(
       fontFamily: getFont(context),
-      fontSize: propText(12),
-      fontWeight: FontWeight.normal,
+      fontSize: propText(14),
+      fontWeight: FontWeight.w500,
       color: AppColors.teal,
       decoration: isUnderlined ? TextDecoration.underline : TextDecoration.none,
       decorationColor: AppColors.teal,
+    );
+  }
+
+  static TextStyle inputHintGrey(BuildContext context) {
+    return TextStyle(
+      fontFamily: getFont(context),
+      fontSize: propText(14),
+      fontWeight: FontWeight.normal,
+      color: AppColors.black.withOpacity(0.5),
+    );
+  }
+
+  static TextStyle errorText(BuildContext context) {
+    return TextStyle(
+      fontFamily: getFont(context),
+      fontSize: propText(12),
+      fontWeight: FontWeight.normal,
+      color: AppColors.purple,
     );
   }
 
@@ -109,17 +118,53 @@ class Fonts {
     return TextStyle(
       fontFamily: getFont(context),
       fontSize: propText(16),
-      fontWeight: FontWeight.bold,
-      color: AppColors.mint,
+      fontWeight: FontWeight.w600,
+      color: AppColors.blue,
     );
   }
 
-  static TextStyle errorText(BuildContext context) {
+  static TextStyle cardTitle(BuildContext context) {
+    return TextStyle(
+      fontFamily: getFont(context),
+      fontSize: propText(20),
+      fontWeight: FontWeight.w600,
+      color: AppColors.black,
+    );
+  }
+
+  static TextStyle cardSubtitle(BuildContext context) {
     return TextStyle(
       fontFamily: getFont(context),
       fontSize: propText(14),
       fontWeight: FontWeight.normal,
-      color: AppColors.purple,
+      color: AppColors.black.withOpacity(0.7),
+    );
+  }
+
+  static TextStyle actionLabel(BuildContext context) {
+    return TextStyle(
+      fontFamily: getFont(context),
+      fontSize: propText(12),
+      fontWeight: FontWeight.w500,
+      color: AppColors.black,
+    );
+  }
+
+  static TextStyle sectionHeader(BuildContext context) {
+    return TextStyle(
+      fontFamily: getFont(context),
+      fontSize: propText(22),
+      fontWeight: FontWeight.w600,
+      color: AppColors.black,
+    );
+  }
+
+  static TextStyle searchText(BuildContext context) {
+    return TextStyle(
+      fontFamily: getFont(context),
+      fontSize: propText(16),
+      fontWeight: FontWeight.normal,
+      color: AppColors.black,
     );
   }
 }

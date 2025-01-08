@@ -1,25 +1,23 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:vively/screens/home.dart';
-import 'package:vively/screens/signup.dart';
 import 'package:vively/services/colors.dart';
 import 'package:vively/services/fonts.dart';
 import 'package:vively/services/size_config.dart';
 import 'package:vively/widgets/button.dart';
-import 'package:vively/providers/auth_provider.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class SignupScreen extends StatefulWidget {
+  const SignupScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignupScreen> createState() => _SignupScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignupScreenState extends State<SignupScreen> {
   final _formKey = GlobalKey<FormState>();
   final _usernameController = TextEditingController();
+  final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 SizedBox(height: propHeight(40)),
                 Text(
-                  'login.title'.tr(),
+                  'signup.title'.tr(),
                   style: Fonts.headline1(context),
                 ),
                 SizedBox(height: propHeight(30)),
@@ -102,6 +100,44 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(height: propHeight(20)),
                 TextFormField(
                   style: const TextStyle(color: AppColors.black),
+                  controller: _emailController,
+                  keyboardType: TextInputType.emailAddress,
+                  cursorHeight: propHeight(16),
+                  cursorWidth: propWidth(2),
+                  cursorRadius: Radius.circular(propWidth(12)),
+                  cursorColor: AppColors.blue,
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: AppColors.white,
+                    hintText: 'placeholders.enterEmail'.tr(),
+                    hintStyle: Fonts.inputHintGrey(context),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(propWidth(10)),
+                      borderSide: const BorderSide(color: AppColors.black),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(propWidth(10)),
+                      borderSide: const BorderSide(color: AppColors.black),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(propWidth(10)),
+                      borderSide: const BorderSide(color: AppColors.blue),
+                    ),
+                  ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'errors.requiredField'.tr();
+                    }
+                    if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
+                        .hasMatch(value)) {
+                      return 'errors.invalidEmail'.tr();
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(height: propHeight(20)),
+                TextFormField(
+                  style: const TextStyle(color: AppColors.black),
                   controller: _passwordController,
                   obscureText: true,
                   cursorHeight: propHeight(16),
@@ -130,29 +166,60 @@ class _LoginScreenState extends State<LoginScreen> {
                     if (value == null || value.isEmpty) {
                       return 'errors.requiredField'.tr();
                     }
+                    if (value.length < 8) {
+                      return 'errors.invalidPassword'.tr();
+                    }
                     return null;
                   },
                 ),
-                SizedBox(height: propHeight(10)),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: TextButton(
-                    onPressed: () {
-                      // Handle forgot password
-                    },
-                    child: Text(
-                      'login.forgotPassword'.tr(),
-                      style: Fonts.linkText(context, true),
+                SizedBox(height: propHeight(20)),
+                TextFormField(
+                  style: const TextStyle(color: AppColors.black),
+                  controller: _confirmPasswordController,
+                  obscureText: true,
+                  cursorHeight: propHeight(16),
+                  cursorWidth: propWidth(2),
+                  cursorRadius: Radius.circular(propWidth(12)),
+                  cursorColor: AppColors.blue,
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: AppColors.white,
+                    hintText: 'signup.confirmPassword'.tr(),
+                    hintStyle: Fonts.inputHintGrey(context),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(propWidth(10)),
+                      borderSide: const BorderSide(color: AppColors.black),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(propWidth(10)),
+                      borderSide: const BorderSide(color: AppColors.black),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(propWidth(10)),
+                      borderSide: const BorderSide(color: AppColors.blue),
                     ),
                   ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'errors.requiredField'.tr();
+                    }
+                    if (value != _passwordController.text) {
+                      return 'errors.passwordMismatch'.tr();
+                    }
+                    return null;
+                  },
                 ),
-                SizedBox(height: propHeight(30)),
+                SizedBox(height: propHeight(40)),
                 Center(
                   child: CustomButton(
                     w: 300,
                     h: 40,
-                    text: 'buttons.login'.tr(),
-                    onPressed: _handleLogin,
+                    text: 'signup.signupButton'.tr(),
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        // Handle signup
+                      }
+                    },
                     gradient: const LinearGradient(
                       colors: [
                         AppColors.blue,
@@ -167,26 +234,21 @@ class _LoginScreenState extends State<LoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'login.signupPrompt'.tr(),
+                      'signup.loginPrompt'.tr(),
                       style: Fonts.linkText(context, false).copyWith(
                         color: AppColors.black,
                       ),
                     ),
                     TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const SignupScreen()),
-                        );
-                      },
+                      onPressed: () => Navigator.pop(context),
                       child: Text(
-                        'login.signupLink'.tr(),
+                        'signup.loginLink'.tr(),
                         style: Fonts.linkText(context, true),
                       ),
                     ),
                   ],
                 ),
+                SizedBox(height: propHeight(20)),
               ],
             ),
           ),
@@ -195,23 +257,12 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  void _handleLogin() {
-    if (_formKey.currentState!.validate()) {
-      // Here you would typically validate credentials with your backend
-      // For now, we'll just simulate a successful login
-      context.read<AuthProvider>().login('user123');
-
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const HomeScreen()),
-      );
-    }
-  }
-
   @override
   void dispose() {
     _usernameController.dispose();
+    _emailController.dispose();
     _passwordController.dispose();
+    _confirmPasswordController.dispose();
     super.dispose();
   }
 }

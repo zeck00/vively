@@ -8,4 +8,5 @@ class AppColors {
   static const Color blue = Color(0xFF1F1F76); // 1F1F76
   static const Color lavender = Color(0xFFE1BEE7); // E1BEE7
   static const Color purple = Color(0xFFA18AD1); // A18AD1
+  static const Color red = Color(0xFFFF3B30);
 }

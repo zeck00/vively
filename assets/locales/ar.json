@@ -18,7 +18,9 @@
       "email": "البريد الإلكتروني",
       "password": "كلمة المرور",
       "confirmPassword": "تأكيد كلمة المرور",
-      "signupButton": "إنشاء حساب"
+      "signupButton": "إنشاء حساب",
+      "loginPrompt": "لديك حساب بالفعل؟",
+      "loginLink": "تسجيل الدخول"
     },
     "errors": {
       "requiredField": "هذا الحقل مطلوب",
@@ -41,6 +43,51 @@
     "success": {
       "login": "تم تسجيل الدخول بنجاح",
       "signup": "تم إنشاء الحساب بنجاح"
+    },
+    "home": {
+      "title": "الرئيسية",
+      "welcome": "مرحباً بعودتك",
+      "searchHint": "البحث عن الأصول...",
+      "myAssets": "أصولي المشتركة",
+      "noAssets": "لا توجد أصول حتى الآن",
+      "explore": "استكشاف",
+      "feed": "أحدث الفرص",
+      "insights": {
+        "title": "إحصائياتي",
+        "totalSavings": "إجمالي التوفير",
+        "nextPayment": "الدفعة القادمة",
+        "usageStats": "إحصائيات الاستخدام"
+      },
+      "actions": {
+        "addAsset": "إضافة أصل",
+        "explore": "استكشاف",
+        "notifications": "الإشعارات"
+      },
+      "filters": {
+        "all": "الكل",
+        "cars": "سيارات",
+        "homes": "منازل",
+        "gadgets": "أجهزة"
+      },
+      "posts": {
+        "requestJoin": "طلب الانضمام",
+        "learnMore": "المزيد",
+        "price": "السعر",
+        "location": "الموقع",
+        "owners": "الملاك المشتركون"
+      }
+    },
+    "asset": {
+      "currentStatus": "الحالة الحالية",
+      "owners": "الملاك المشتركون",
+      "schedule": "جدول الاستخدام",
+      "specifications": "المواصفات",
+      "rules": "قواعد الاستخدام",
+      "requestAccess": "طلب الوصول",
+      "requestExtension": "طلب تمديد الفترة",
+      "extensionRequested": "تم طلب التمديد",
+      "requestAccessSuccess": "تم إرسال طلب الوصول بنجاح",
+      "requestExtensionSuccess": "تم إرسال طلب التمديد بنجاح"
     }
   }
   

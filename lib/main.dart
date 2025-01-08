@@ -1,38 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:vively/screens/home.dart';
+import 'package:vively/screens/welcome.dart';
 import 'package:vively/services/size_config.dart';
-import 'screens/welcome.dart';
 import 'services/colors.dart';
 import 'services/fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:vively/providers/auth_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+
   runApp(
     EasyLocalization(
       supportedLocales: const [Locale('en'), Locale('ar')],
       path: 'assets/locales',
       fallbackLocale: const Locale('en'),
-      child: const MainApp(),
+      child: MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (_) => AuthProvider()),
+        ],
+        child: const MyApp(),
+      ),
     ),
   );
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    initSizeConfig(context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      theme: AppThemes.lightTheme(context),
-      darkTheme: AppThemes.darkTheme(context),
-      themeMode: ThemeMode.system,
-      home: const WelcomeScreen(),
+      home: Consumer<AuthProvider>(
+        builder: (context, auth, _) {
+          return auth.isLoggedIn ? const HomeScreen() : const WelcomeScreen();
+        },
+      ),
     );
   }
 }
@@ -68,7 +77,8 @@ class AppThemes {
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: AppColors.white,
-        hintStyle: Fonts.inputHint(context).copyWith(color: AppColors.black),
+        hintStyle:
+            Fonts.inputHintGrey(context).copyWith(color: AppColors.black),
         activeIndicatorBorder: const BorderSide(color: AppColors.blue),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(propWidth(10)),
@@ -86,9 +96,9 @@ class AppThemes {
       useMaterial3: true,
       textTheme: TextTheme(
         bodyMedium: Fonts.bodyText1(context),
-        bodySmall: Fonts.caption(context),
+        bodySmall: Fonts.bodyText2(context),
         headlineMedium: Fonts.headline1(context),
-        headlineSmall: Fonts.sectionTitle(context),
+        headlineSmall: Fonts.headline2(context),
         labelLarge: Fonts.buttonText(context),
       ),
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
@@ -132,7 +142,7 @@ class AppThemes {
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: AppColors.white,
-        hintStyle: Fonts.inputHint(context).copyWith(color: AppColors.black),
+        hintStyle: Fonts.inputHintGrey(context),
         activeIndicatorBorder: const BorderSide(color: AppColors.blue),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(propWidth(10)),
@@ -150,11 +160,10 @@ class AppThemes {
       useMaterial3: true,
       textTheme: TextTheme(
         bodyMedium: Fonts.bodyText1(context).copyWith(color: AppColors.white),
-        bodySmall: Fonts.caption(context).copyWith(color: AppColors.white),
+        bodySmall: Fonts.bodyText2(context).copyWith(color: AppColors.white),
         headlineMedium:
             Fonts.headline1(context).copyWith(color: AppColors.mint),
-        headlineSmall:
-            Fonts.sectionTitle(context).copyWith(color: AppColors.mint),
+        headlineSmall: Fonts.headline2(context).copyWith(color: AppColors.mint),
         labelLarge: Fonts.buttonText(context),
       ),
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
